@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        FitWatch Assignment
+        Student Name: Harsh
+        Focus: HTML5, CSS3, Vanilla JS
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWatch | Smart Health Tracking</title>
+    
+    <!-- Link to our custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Using Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION HEADER -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <span class="text-green">●</span> FitWatch
+            </div>
+            
+            <!-- Main Navbar links -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Hamburger button for mobile menu -->
+            <div class="header-right">
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- 2. HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tag">The Future of Fitness</span>
+                    <h1>Track Your Health, <br><span class="text-green">Live Better</span></h1>
+                    <p>Monitor your heart rate, sleep patterns, and daily activity levels with our advanced technology.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-green">Get Started</a>
+                        <a href="#" class="btn btn-outline">Watch Demo</a>
+                    </div>
+                </div>
+                
+                <div class="hero-img-box">
+                    <!-- Image of the watch goes here -->
+                    <img src="assets/watch-hero.png" alt="FitWatch Smartwatch">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRODUCT FEATURES -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="label">Features</span>
+                    <h2>Everything You Need</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <!-- Heart Rate Feature -->
+                    <div class="feature-card">
+                        <div class="icon-box">❤️</div>
+                        <h3>Heart Rate</h3>
+                        <p>24/7 continuous heart rate tracking with rhythm alerts.</p>
+                    </div>
+                    
+                    <!-- Sleep Tracking Feature -->
+                    <div class="feature-card">
+                        <div class="icon-box">💤</div>
+                        <h3>Sleep Track</h3>
+                        <p>Detailed analysis of your sleep cycles and quality score.</p>
+                    </div>
+                    
+                    <!-- Activity tracking Feature -->
+                    <div class="feature-card">
+                        <div class="icon-box">🏃</div>
+                        <h3>Activity</h3>
+                        <p>Track steps, calories, and minutes across sports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PRICING PLANS -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="label">Pricing</span>
+                    <h2>Choose Your Plan</h2>
+                    
+                    <!-- Toggle switch for Monthly/Yearly -->
+                    <div class="pricing-toggle">
+                        <span id="monthly-label" class="active">Monthly</span>
+                        <div class="toggle-btn" id="price-toggle">
+                            <div class="toggle-circle"></div>
+                        </div>
+                        <span id="yearly-label">Yearly</span>
+                    </div>
+                </div>
+                
+                <div class="pricing-grid">
+                    <!-- Basic Membership -->
+                    <div class="pricing-card">
+                        <h3>Basic Plan</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span id="basic-price">19</span>
+                            <span>/mo</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                        <ul>
+                            <li>Heart Rate tracking</li>
+                            <li>Step Monitoring</li>
+                            <li>Basic Sleep Log</li>
+                            <li>7-day history</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Premium Membership (Popular) -->
+                    <div class="pricing-card best-value">
+                        <span class="badge">Popular</span>
+                        <h3>Premium Plan</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span id="premium-price">29</span>
+                            <span>/mo</span>
+                        </div>
+                        <a href="#" class="btn btn-green">Get Started</a>
+                        <ul>
+                            <li>Advanced Sleep Analysis</li>
+                            <li>GPS Tracking</li>
+                            <li>Blood Oxygen (SpO2)</li>
+                            <li>30-day history</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TESTIMONIALS (Reviews) -->
+        <section id="reviews" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="label">Reviews</span>
+                    <h2>Customer Feedback</h2>
+                </div>
+                
+                <div class="testimonial-grid">
+                    <!-- Review 1 -->
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Incredible sleep tracking. I finally understand my patterns better than ever before."</p>
+                        <div class="user-box">
+                            <img src="assets/avatar-alex.png" alt="User Avatar">
+                            <h4>Sarah J.</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The battery life is amazing. I only charge it once a week. Truly impressed."</p>
+                        <div class="user-box">
+                            <img src="assets/avatar-sarah.png" alt="User Avatar">
+                            <h4>Mark R.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. NEWSLETTER SIGNUP -->
+        <section id="contact" class="newsletter">
+            <div class="container">
+                <div class="newsletter-box">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe for fitness tips and product updates.</p>
+                    
+                    <!-- Subscription Form -->
+                    <form class="news-form" id="newsletter-form">
+                        <input type="email" placeholder="Enter your email" id="email-field" required>
+                        <button type="submit" class="btn btn-green">Subscribe</button>
+                    </form>
+                    
+                    <!-- Message placeholder -->
+                    <p id="msg" style="font-size: 0.9rem; margin-top: 15px;"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <!-- Branding column -->
+                <div class="footer-brand">
+                    <h3>FitWatch</h3>
+                    <p>The future of health tracking. Designed for you.</p>
+                </div>
+                
+                <!-- Links column -->
+                <div>
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support column -->
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 FitWatch Assignment. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS File -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+/* 
+ * FitWatch Stylesheet
+ * -----------------------------------------
+ * This is the main CSS file for our landing page.
+ * We follow a mobile-first approach here.
+ */
+
+/* --- 1. CSS VARIABLES --- */
+:root {
+    --bg-color: #0B0F1A;
+    --card-bg: #151B28;
+    --accent: #22C55E;
+    --text-white: #FFFFFF;
+    --text-gray: #94A3B8;
+    --border: rgba(255, 255, 255, 0.1);
+    --spacing: 20px;
+    --transition: 0.3s ease;
+}
+
+/* --- 2. GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3 { 
+    line-height: 1.2; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: var(--transition); 
+}
+
+ul { 
+    list-style: none; 
+}
+
+img { 
+    max-width: 100%; 
+    display: block; 
+}
+
+/* --- 3. LAYOUT CONTAINER --- */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+}
+
+/* --- 4. REUSABLE BUTTONS --- */
+.btn {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-green { 
+    background-color: var(--accent); 
+    color: #000000; 
+}
+
+.btn-green:hover { 
+    background-color: #16A34A; 
+    transform: translateY(-2px); 
+}
+
+.btn-outline { 
+    background-color: transparent; 
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--border); 
+    color: #FFFFFF; 
+}
+
+.btn-outline:hover { 
+    background-color: rgba(255, 255, 255, 0.05); 
+}
+
+/* --- 5. MOBILE-FIRST BASE STYLES --- */
+
+/* --- HEADER SECTION --- */
+header {
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(11, 15, 26, 0.9);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+}
+
+.logo { 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+    margin-right: auto;
+}
+
+.text-green { 
+    color: var(--accent); 
+}
+
+/* Mobile Nav (Hidden by Default) */
+nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #080B14;
+    padding-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: var(--transition);
+    z-index: 999;
+}
+
+/* On desktop, we will adjust the nav position in the media query below */
+
+nav.nav-active { 
+    right: 0; 
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+nav a { 
+    color: var(--text-gray); 
+    font-size: 1.1rem; 
+}
+
+nav a:hover { 
+    color: var(--accent); 
+}
+
+/* Hamburger Icon */
+.hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: var(--transition);
+}
+
+/* Hamburger Animation Styles */
+.hamburger.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.hero h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+}
+
+.hero p { 
+    color: var(--text-gray); 
+    margin-bottom: 30px; 
+}
+
+.hero-buttons { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: center; 
+}
+
+.hero-img-box { 
+    margin-top: 40px; 
+}
+
+/* --- FEATURES SECTION --- */
+.features { 
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    background-color: #080B14; 
+}
+
+.section-header { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+.section-header h2 { 
+    font-size: 2rem; 
+    margin-top: 10px; 
+}
+
+.label { 
+    color: var(--accent); 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.feature-card:hover { 
+    border-color: var(--accent); 
+}
+
+/* --- PRICING SECTION --- */
+.pricing { 
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    text-align: center; 
+}
+
+.pricing-toggle { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
+.toggle-btn { 
+    width: 50px; 
+    height: 26px; 
+    background-color: var(--card-bg); 
+    border-radius: 20px; 
+    cursor: pointer; 
+    position: relative; 
+}
+
+.toggle-circle { 
+    width: 20px; 
+    height: 20px; 
+    background-color: var(--accent); 
+    border-radius: 50%; 
+    position: absolute; 
+    top: 3px; 
+    left: 3px; 
+    transition: var(--transition); 
+}
+
+.toggle-btn.active .toggle-circle { 
+    left: 27px; 
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.pricing-card {
+    background-color: var(--card-bg);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.pricing-card.best-value { 
+    border-color: var(--accent); 
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.badge { 
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-gray); 
+    font-size: 0.85rem; 
+    font-weight: 500; 
+}
+
+.price { 
+    font-size: 5rem; 
+    font-weight: 800; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.currency {
+    font-size: 5.5rem;
+    color: var(--text-white);
+}
+
+.price span[id] {
+    font-size: 5rem;
+}
+
+.price span:last-child {
+    font-size: 1.4rem;
+    color: var(--text-gray);
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.pricing-card ul { 
+    margin-top: 40px;
+    text-align: left; 
+    padding-left: 20px;
+}
+
+.pricing-card li { 
+    margin-bottom: 15px; 
+    color: var(--text-gray); 
+    font-size: 0.95rem;
+}
+
+.pricing-card li::before {
+    content: "";
+}
+
+.pricing-card .btn {
+    width: 100%;
+    max-width: 200px;
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials { 
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    background-color: #080B14; 
+    text-align: center; 
+}
+
+.testimonial-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+}
+
+.test-card { 
+    background-color: var(--card-bg); 
+    padding: 30px; 
+    border-radius: 12px; 
+    border: 1px solid var(--border); 
+    text-align: left;
+}
+
+.user-box { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    margin-top: 20px; 
+}
+
+.user-box img { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+}
+
+/* --- NEWSLETTER SECTION --- */
+.newsletter { 
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    text-align: center; 
+}
+
+.newsletter-box { 
+    background-color: var(--card-bg); 
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px; 
+    border: 1px solid var(--border); 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.newsletter-box p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.news-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 35px; 
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-form input { 
+    flex: 1;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px; 
+    border: 1px solid var(--border); 
+    background-color: rgba(255, 255, 255, 0.03); 
+    color: #FFFFFF; 
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.news-form input:focus {
+    border-color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.news-form .btn {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+/* --- FOOTER SECTION --- */
+footer { 
+    padding-top: 80px; 
+    padding-bottom: 40px;
+    background-color: #080B14; 
+    border-top: 1px solid var(--border); 
+}
+
+.footer-cols { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    margin-bottom: 60px; 
+}
+
+.footer-cols > div:first-child {
+    grid-column: span 2;
+}
+
+.footer-cols h3 { 
+    font-size: 1.5rem; 
+    margin-bottom: 15px; 
+    color: var(--accent); 
+}
+
+.footer-cols h4 { 
+    font-size: 1.1rem; 
+    margin-bottom: 20px; 
+    font-weight: 700; 
+    color: var(--text-white);
+}
+
+.footer-cols p { 
+    color: var(--text-gray); 
+    font-size: 0.95rem; 
+    max-width: 300px; 
+}
+
+.footer-cols ul li { 
+    margin-bottom: 12px; 
+}
+
+.footer-cols ul li a { 
+    color: var(--text-gray); 
+    font-size: 0.9rem; 
+    transition: var(--transition); 
+}
+
+.footer-cols ul li a:hover { 
+    color: var(--accent); 
+    padding-left: 5px; 
+}
+
+.footer-bottom { 
+    text-align: center; 
+    color: var(--text-gray); 
+    font-size: 0.85rem; 
+    border-top: 1px solid var(--border); 
+    padding-top: 30px; 
+}
+
+/* --- 6. DESKTOP BREAKPOINTS --- */
+@media (min-width: 768px) {
+    /* Header (Desktop) */
+    .hamburger { 
+        display: none; 
+    }
+    
+    nav { 
+        position: static; 
+        height: auto; 
+        width: auto; 
+        background-color: transparent; 
+        padding: 0; 
+        display: block; 
+    }
+    
+    nav ul { 
+        flex-direction: row; 
+    }
+    
+    nav a { 
+        font-size: 0.9rem; 
+    }
+
+    /* Hero (Desktop) */
+    .hero { 
+        text-align: left; 
+        padding-top: 160px;
+        padding-bottom: 100px;
+    }
+    
+    .hero .container { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 50px; 
+    }
+    
+    .hero-buttons { 
+        flex-direction: row; 
+    }
+    
+    .hero-img-box { 
+        margin-top: 0; 
+    }
+    
+    .hero h1 { 
+        font-size: 3.5rem; 
+    }
+
+    /* Grid Layouts (Desktop) */
+    .features-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    
+    .pricing-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        max-width: 800px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .testimonial-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .footer-cols { 
+        grid-template-columns: 1.5fr 1fr 1fr; 
+        gap: 60px; 
+    }
+    
+    .footer-cols > div:first-child { 
+        grid-column: span 1; 
+    }
+    
+    /* Newsletter Form (Desktop) */
+    .news-form { 
+        flex-direction: row; 
+        max-width: 500px; 
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+}
