@@ -40,7 +40,7 @@ The website is optimized for:
 
 ## 📸 Website Preview
 
-<img width="100%" alt="FitWatch Preview" src="./assets/Smart Fitness Watch Landing Page (1).png">
+<img width="100%" alt="FitWatch Preview" src="./assets/smartlandingpage.png">
 
 ---
 
